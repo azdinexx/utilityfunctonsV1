@@ -1,22 +1,26 @@
-import React from 'react';
+'use client';
 import { useState } from 'react';
 
 import Editor from '@monaco-editor/react';
 
-export default function CodeEditor() {
-  const [code, setCode] = useState('// type your code...');
+interface Props {
+  height: string | undefined;
+  code: string;
+  setCode: Function;
+}
+
+export default function CodeEditor({ height = '90vh', code, setCode }: Props) {
   return (
     <>
       <Editor
-        height='90vh'
+        className='p-2 bg-[#1E1E1E] rounded-md'
+        height={height}
         defaultLanguage='javascript'
-        defaultValue='// some comment'
-        onChange={(value) => setCode(value)}
+        defaultValue='// type your Utility Function...'
+        onChange={(value) => setCode((prev: string) => value || prev)}
         value={code}
-        options={{ readOnly: true }}
-        theme='Ocean Next'
+        theme='vs-dark'
       />
-      {code}
     </>
   );
 }

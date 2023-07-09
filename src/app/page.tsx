@@ -1,7 +1,7 @@
 import data from '../../public/posts.json';
 import Post from '../components/post';
 
-import Footer from '../components/Footer.tsx';
+import Footer from '../components/Footer';
 
 function page() {
   return (
@@ -56,11 +56,7 @@ function page() {
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-3  py-5'>
           {data.map((post) => {
-            return (
-              <Post key={post.id} {...post}>
-                hello
-              </Post>
-            );
+            return <Post key={post.id} {...post}></Post>;
           })}
         </div>
       </div>
