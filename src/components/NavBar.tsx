@@ -1,7 +1,4 @@
 import Link from 'next/link';
-import UserWidgets from './UserWidgets';
-import AnonymsWidgets from './AnonymsWidgets';
-let user = false;
 function NavBar() {
   return (
     <div className='flex px-4 py-6 items-center'>
@@ -101,7 +98,15 @@ function NavBar() {
           </svg>
         </button>
       </div>
-      {user ? <UserWidgets /> : <AnonymsWidgets />}
+      <div className='px-2 ml-auto flex '>
+        <button className='px-2 md:block hidden'>
+          <Link href={'new'}>Add New</Link>
+        </button>
+        <button className='flex items-center border-l pl-3 hover:bg-gray-300 gap-2 relative group'>
+          <img src='/def.jpg' alt='' className='w-8 h-8 rounded-full' />
+          Azzdine Bouali
+        </button>
+      </div>
     </div>
   );
 }
